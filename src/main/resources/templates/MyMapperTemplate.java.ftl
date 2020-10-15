@@ -18,18 +18,8 @@ import java.util.List;
 interface ${table.mapperName} : ${superMapperClass}<${entity}>
 <#else>
 
-public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
+public interface ${table.mapperName}  extends ${superMapperClass}<${entity}> {
 
-    List<${entity}> select${entity}List(${entity} parameter);
 
-    ${entity} selectEntity(${entity} parameter);
-
-    Integer update(${entity} parameter);
-
-    Integer insert(${entity} parameter);
-
-    Integer deleteByIdById(@Param("id") Integer id);
-
-    Integer deleteByIds(Integer[] ids);
 }
 </#if>

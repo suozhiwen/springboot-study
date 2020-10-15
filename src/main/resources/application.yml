@@ -4,3 +4,43 @@ spring:
     url: jdbc:mysql://localhost:3306/springboot-test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&nullCatalogMeansCurrent=true
     username: root
     password: 123456
+
+
+########## Mybatis 自身配置 ##########
+mybatis-plus:
+  # 注意注意
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.mysql.entity
+  global-config:
+    db-config:
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: ID_WORKER
+      #主键类型
+      #实体类主键策略有3种（ 注解 > 全局 > 默认 ）
+      #AUTO 数据库ID自增
+      #INPUT 用户输入ID
+      #ID_WORKER 全局唯一ID，Long类型的主键
+      #ID_WORKER_STR 字符串全局唯一ID
+      #UUID 全局唯一ID，UUID类型的主键
+      #NONE 该类型为未设置主键类型
+      id-type: ID_WORKER
+      #驼峰下划线转换
+      db-column-underline: true
+      #表名、是否使用下划线命名，默认数据库表使用下划线命名  true
+      table-underline: true
+      #刷新mapper 调试神器
+      refresh-mapper: true
+      #数据库大写下划线转换
+      capital-mode: true
+
+  configuration:
+    #MyBatis 自动映射时未知列或未知属性处理策略，通过该配置可指定 MyBatis 在自动映射过程中遇到未知
+    #NONE：不做任何处理 (默认值)
+    #WARNING：以日志的形式打印相关警告信息 .
+    #FAILING：当作映射失败处理，并抛出异常和详细信息
+    auto-mapping-unknown-column-behavior: failing
+    #解决 resultMap 为map时值为空不返回的场景
+    call-setters-on-nulls: true

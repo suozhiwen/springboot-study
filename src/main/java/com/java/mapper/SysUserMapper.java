@@ -12,20 +12,10 @@ import java.util.List;
  *
  *
  * @author szw
- * @since 2020-10-11
+ * @since 2020-10-14
  */
 
-public interface SysUserMapper extends BaseMapper<SysUser> {
+public interface SysUserMapper  extends BaseMapper<SysUser> {
 
-    List<SysUser> selectSysUserList(SysUser parameter);
 
-    SysUser selectEntity(SysUser parameter);
-
-    Integer update(SysUser parameter);
-
-    Integer insert(SysUser parameter);
-
-    Integer deleteByIdById(@Param("id") Integer id);
-
-    Integer deleteByIds(Integer[] ids);
 }

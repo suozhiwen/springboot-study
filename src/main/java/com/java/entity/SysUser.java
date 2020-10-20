@@ -1,6 +1,5 @@
 package com.java.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -16,7 +15,7 @@ import lombok.experimental.Accessors;
  * sys_user 
  *
  * @author szw
- * @since 2020-10-14
+ * @since 2020-10-20
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -29,9 +28,8 @@ public class SysUser implements Serializable {
     /**
      * 主键ID
      */
-//    @TableId(type = IdType.UUID)
-    @TableId
-    private Long id;
+    @TableId("id")
+    private String id;
 
     /**
      * 姓名
@@ -50,6 +48,9 @@ public class SysUser implements Serializable {
      */
     @TableField("email")
     private String email;
+
+    @TableField("a_a")
+    private String aA;
 
 
 }

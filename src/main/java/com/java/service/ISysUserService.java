@@ -7,7 +7,7 @@ package com.java.service;
  * </p>
  *
  * @author szw
- * @since 2020-10-14
+ * @since 2020-10-20
  */
 public interface ISysUserService {
 

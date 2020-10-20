@@ -6,6 +6,11 @@ spring:
     password: 123456
 
 
+# 打印sql
+logging:
+  level:
+     com.java.mapper : debug
+
 ########## Mybatis 自身配置 ##########
 mybatis-plus:
   # 注意注意
@@ -17,7 +22,8 @@ mybatis-plus:
   global-config:
     db-config:
       #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
-      field-strategy: ID_WORKER
+#      field-strategy:
+      select-strategy: NOT_NULL
       #主键类型
       #实体类主键策略有3种（ 注解 > 全局 > 默认 ）
       #AUTO 数据库ID自增

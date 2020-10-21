@@ -41,7 +41,7 @@ public class CodeGeneration {
         gc.setAuthor("szw");
         gc.setOpen(false);
         // XML ResultMap  返回结果
-        gc.setBaseResultMap(false);
+        gc.setBaseResultMap(true);
         // XML columList 通用查询结果列通用结果列
         gc.setBaseColumnList(true);
         //开启 swagger2 模式
@@ -53,7 +53,7 @@ public class CodeGeneration {
 
         /** 数据源配置 */
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/springboot-test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&nullCatalogMeansCurrent=true");
+        dsc.setUrl("jdbc:mysql://localhost:3306/world?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&nullCatalogMeansCurrent=true");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");

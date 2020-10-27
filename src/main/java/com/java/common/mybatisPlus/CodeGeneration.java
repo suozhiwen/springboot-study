@@ -28,7 +28,7 @@ public class CodeGeneration {
     static String projectPath = System.getProperty("user.dir");
     public static void main(String[] args) {
         /** 需要生成单表的名称 */
-        String tableNamesInclude = "sys_user";
+        String tableNamesInclude = "sys_menu";
 
         /** 生成代码存放的路径 */
         String parent = "com.java";
@@ -53,7 +53,7 @@ public class CodeGeneration {
 
         /** 数据源配置 */
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/world?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&nullCatalogMeansCurrent=true");
+        dsc.setUrl("jdbc:mysql://localhost:3306/springboot-test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&nullCatalogMeansCurrent=true");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");

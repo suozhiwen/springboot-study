@@ -29,7 +29,7 @@ import java.util.List;
 <#else>
 @Controller
 </#if>
-@RequestMapping("<#if package.ModuleName??>/${package.ModuleName}</#if>/${table.name?replace("_", "-")}-api")
+@RequestMapping("/${table.name?replace("_", "-")}-api")
 <#if superControllerClass??>
 public class ${table.controllerName} extends ${superControllerClass} {
 <#else>

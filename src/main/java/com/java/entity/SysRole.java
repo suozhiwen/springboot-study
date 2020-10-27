@@ -13,8 +13,8 @@ import lombok.experimental.Accessors;
 /**
  *
  *
- * SysUser对象
- * sys_user 用户信息表
+ * SysRole对象
+ * sys_role 角色信息表
  *
  * @author szw
  * @since 2020-10-25
@@ -22,73 +22,43 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_user")
-public class SysUser implements Serializable {
+@TableName("sys_role")
+public class SysRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户ID
+     * 角色ID
      */
-    @TableId(value = "user_id", type = IdType.AUTO)
-    private Long userId;
+    @TableId(value = "role_id", type = IdType.AUTO)
+    private Long roleId;
 
     /**
-     * 部门ID
+     * 角色名称
      */
-    @TableField("dept_id")
-    private Long deptId;
+    @TableField("role_name")
+    private String roleName;
 
     /**
-     * 用户账号
+     * 角色权限字符串
      */
-    @TableField("user_name")
-    private String userName;
+    @TableField("role_key")
+    private String roleKey;
 
     /**
-     * 用户昵称
+     * 显示顺序
      */
-    @TableField("nick_name")
-    private String nickName;
+    @TableField("role_sort")
+    private Integer roleSort;
 
     /**
-     * 用户类型（00系统用户）
+     * 数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）
      */
-    @TableField("user_type")
-    private String userType;
+    @TableField("data_scope")
+    private String dataScope;
 
     /**
-     * 用户邮箱
-     */
-    @TableField("email")
-    private String email;
-
-    /**
-     * 手机号码
-     */
-    @TableField("phonenumber")
-    private String phonenumber;
-
-    /**
-     * 用户性别（0男 1女 2未知）
-     */
-    @TableField("sex")
-    private String sex;
-
-    /**
-     * 头像地址
-     */
-    @TableField("avatar")
-    private String avatar;
-
-    /**
-     * 密码
-     */
-    @TableField("password")
-    private String password;
-
-    /**
-     * 帐号状态（0正常 1停用）
+     * 角色状态（0正常 1停用）
      */
     @TableField("status")
     private String status;
@@ -98,18 +68,6 @@ public class SysUser implements Serializable {
      */
     @TableField("del_flag")
     private String delFlag;
-
-    /**
-     * 最后登陆IP
-     */
-    @TableField("login_ip")
-    private String loginIp;
-
-    /**
-     * 最后登陆时间
-     */
-    @TableField("login_date")
-    private LocalDateTime loginDate;
 
     /**
      * 创建者

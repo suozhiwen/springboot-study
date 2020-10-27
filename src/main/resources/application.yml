@@ -50,3 +50,15 @@ mybatis-plus:
     auto-mapping-unknown-column-behavior: failing
     #解决 resultMap 为map时值为空不返回的场景
     call-setters-on-nulls: true
+
+
+
+# token配置
+token:
+  # 令牌自定义标识
+  header: Authorization
+  # 令牌密钥
+  secret: xuzhousuozhiwen
+  # 令牌有效期（默认30分钟）
+  expireTime: 300
+

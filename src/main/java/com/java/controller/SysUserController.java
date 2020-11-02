@@ -1,5 +1,10 @@
 package com.java.controller;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +31,15 @@ public class SysUserController  {
     private ISysUserService iSysUserService;
 
 
+//    @PreAuthorize("hasAuthority('admin')")
+    @GetMapping
+    public List<SysUser> sysUserList() {
+        List<SysUser> sysUserList = iSysUserService.list();
+        for (SysUser sysUser : sysUserList) {
+            System.out.println(sysUser.toString());
+        }
+        return sysUserList;
+    }
 
 
 }

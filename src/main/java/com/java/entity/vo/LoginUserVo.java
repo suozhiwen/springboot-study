@@ -108,5 +108,6 @@ public class LoginUserVo implements UserDetails {
     }
 
 
-
+    public LoginUserVo() {
+    }
 }

@@ -81,7 +81,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/swagger-resources/**", "anon").anonymous()
 //                .antMatchers("/v2/api-docs/**", "anon").anonymous()
 //                .antMatchers("/swagger-ui.html").anonymous()
-//                .antMatchers("/swagger-resources/**").anonymous()
+//
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域

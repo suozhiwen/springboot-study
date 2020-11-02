@@ -1,12 +1,11 @@
 package com.java.controller;
 
-import com.java.entity.dto.LoginBodyDto;
 import com.java.common.srcurity.service.SysLoginService;
+import com.java.entity.dto.LoginBodyDto;
 import com.java.utils.AjaxResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

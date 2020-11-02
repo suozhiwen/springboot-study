@@ -142,4 +142,6 @@ public class SysUser implements Serializable {
     private String remark;
 
 
+    public SysUser() {
+    }
 }

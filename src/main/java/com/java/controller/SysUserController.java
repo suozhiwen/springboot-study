@@ -1,5 +1,6 @@
 package com.java.controller;
 
+import com.java.common.web.Exception.BaseException;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -35,6 +36,9 @@ public class SysUserController  {
     @GetMapping
     public List<SysUser> sysUserList() {
         List<SysUser> sysUserList = iSysUserService.list();
+        if (sysUserList.size() < 100000){
+            throw new BaseException("500","用户名或者密码错误");
+        }
         for (SysUser sysUser : sysUserList) {
             System.out.println(sysUser.toString());
         }

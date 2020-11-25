@@ -99,6 +99,15 @@ public class AjaxResult extends HashMap<String, Object> {
     public static AjaxResult error(int code, String msg) {
         return new AjaxResult(code, msg, null);
     }
+    /**
+     * 返回错误消息
+     *
+     * @param msg  返回内容
+     * @return 警告消息
+     */
+    public static AjaxResult error(String msg) {
+        return new AjaxResult(500, msg, null);
+    }
 
 
     /**

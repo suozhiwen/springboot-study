@@ -62,3 +62,11 @@ token:
   # 令牌有效期（默认30分钟）
   expireTime: 300
 
+
+
+#用于 common.test2 测试
+person:
+  lastName: lisi
+  age: 12
+  boss: true
+  birth: 2020/11/26

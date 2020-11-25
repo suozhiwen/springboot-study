@@ -1,9 +1,10 @@
 package com.java;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.java.common.redis.RedisCache;
+import com.java.common.test.test1.Car;
+import com.java.common.test.test1.Driver;
 import com.java.entity.SysUser;
 import com.java.mapper.SysUserMapper;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,7 @@ class SpringbootStudyApplicationTests {
 
 	@Resource
 	RedisCache redisCache;
+
 	@Test
 	void contextLoads() {
 		//分页
@@ -33,5 +35,7 @@ class SpringbootStudyApplicationTests {
 //		mapper.insert(sysUser);
 
 	}
+
+
 
 }

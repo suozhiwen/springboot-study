@@ -1,4 +1,4 @@
-package com.java.common.web.Exception;
+package com.java.common.web.exception;
 
 import com.java.utils.AjaxResult;
 import com.java.utils.StringUtils;

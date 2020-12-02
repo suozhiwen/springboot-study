@@ -1,7 +1,6 @@
 package com.java.controller;
 
 import com.java.common.srcurity.service.SysLoginService;
-import com.java.common.web.Exception.BaseException;
 import com.java.entity.dto.LoginBodyDto;
 import com.java.utils.AjaxResult;
 import org.springframework.beans.factory.annotation.Autowired;

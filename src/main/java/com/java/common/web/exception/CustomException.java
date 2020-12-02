@@ -1,4 +1,4 @@
-package com.java.common.web.Exception;
+package com.java.common.web.exception;
 
 /**
  * 自定义异常

@@ -1,4 +1,4 @@
-package com.java.common.web.Exception;
+package com.java.common.web.exception;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -1,6 +1,6 @@
 package com.java.controller;
 
-import com.java.common.web.Exception.BaseException;
+import com.java.common.web.exception.BaseException;
 import com.java.entity.SysUser;
 import com.java.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -38,6 +38,7 @@ spring:
 logging:
   level:
     com.java.mapper: debug
+  path: D:/zmSmartClassroom/logs
 
 ########## Mybatis 自身配置 ##########
 mybatis-plus:

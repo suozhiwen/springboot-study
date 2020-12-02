@@ -67,11 +67,7 @@
 			<version>${mybatis-plus.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+
 
 		<!--mybatis-plus 代码生成器-->
 		<dependency>
@@ -87,7 +83,7 @@
 		</dependency>
 
 
-		
+
 		<!--java工具包-->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -127,7 +123,21 @@
             <artifactId>spring-test</artifactId>
             <version>5.1.7.RELEASE</version>
         </dependency>
-    </dependencies>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!--druid监控配置 -->
+		<!--数据源-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.10</version>
+		</dependency>
+
+	</dependencies>
 
 	<build>
 		<plugins>

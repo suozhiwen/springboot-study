@@ -76,6 +76,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.html",
                         "/**/*.css"
                 ).permitAll()
+//                放行 druid监控相关
+                .antMatchers("/druid/**").anonymous()
 //                .antMatchers("/profile/**").anonymous()
 //                .antMatchers("/doc.html/**", "anon").anonymous()
 //                .antMatchers("/swagger-resources/**", "anon").anonymous()

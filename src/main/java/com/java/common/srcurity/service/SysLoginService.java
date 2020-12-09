@@ -4,10 +4,12 @@ import com.java.common.redis.RedisCache;
 import com.java.common.srcurity.token.TokenService;
 import com.java.entity.vo.LoginUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.Resource;
 
@@ -40,9 +42,11 @@ public class SysLoginService {
         // 用户验证
         Authentication authentication = null;
         try {
+
+            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
             // 该方法会去调用UserDetailsServiceImpl.loadUserByUsername
             authentication = authenticationManager
-                    .authenticate(new UsernamePasswordAuthenticationToken(username, password));
+                    .authenticate(token);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,5 +55,6 @@ public class SysLoginService {
         // 生成token
         return tokenService.createToken(loginUser);
     }
+
 
 }

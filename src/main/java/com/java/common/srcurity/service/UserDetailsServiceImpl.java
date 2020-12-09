@@ -9,10 +9,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 用户登录验证处理
@@ -56,7 +62,26 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     public LoginUserVo createLoginUser(SysUser user) {
-        LoginUserVo loginUser = new LoginUserVo(user, permissionService.getMenuPermission(user));
+
+        Set<String> permissions =  permissionService.getMenuPermission(user);
+        LoginUserVo loginUser = new LoginUserVo(user,permissions);
+
+
+//        Set authoritiesSet = new HashSet();
+//        // 模拟从数据库中获取用户角色
+//        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_ADMIN");
+//        authoritiesSet.add(authority);
+
+        Set authoritiesSet = new HashSet();
+        for (String o : permissions) {
+            // 模拟从数据库中获取用户角色
+            GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_"+o);
+            authoritiesSet.add(authority);
+
+        }
+
+
+        loginUser.setAuthorities(authoritiesSet);
         return loginUser;
     }
 }

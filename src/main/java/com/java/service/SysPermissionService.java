@@ -24,7 +24,8 @@ public class SysPermissionService {
      */
     public Set<String> getMenuPermission(SysUser user) {
         Set<String> perms = new HashSet<String>();
-        perms.addAll(menuService.selectMenuPermsByUserId(user.getUserId()));
+            perms.addAll(menuService.selectMenuPermsByUserId(user.getUserId()));
+
         if (null == perms){
             perms.add("111");
         }

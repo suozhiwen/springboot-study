@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -32,10 +33,14 @@ public class LoginUserVo implements UserDetails {
     private Long expireTime;
 
 
-    /** 用户账号 */
+    /**
+     * 用户账号
+     */
     private String userName;
 
-    /** 密码 */
+    /**
+     * 密码
+     */
     private String password;
 
     /**
@@ -48,8 +53,12 @@ public class LoginUserVo implements UserDetails {
      */
     private SysUser user;
 
-    public LoginUserVo(SysUser user, Set<String> permissions)
-    {
+    /**
+     * 存储权限信息
+     */
+    private Set<? extends GrantedAuthority> authorities;
+
+    public LoginUserVo(SysUser user, Set<String> permissions) {
         this.user = user;
         this.permissions = permissions;
     }
@@ -57,7 +66,7 @@ public class LoginUserVo implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return this.authorities;
     }
 
     @Override
@@ -78,6 +87,7 @@ public class LoginUserVo implements UserDetails {
     public boolean isAccountNonExpired() {
         return true;
     }
+
     /**
      * 指定用户是否解锁,锁定的用户无法进行身份验证
      *
@@ -97,6 +107,7 @@ public class LoginUserVo implements UserDetails {
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
     /**
      * 是否可用 ,禁用的用户不能身份验证
      *

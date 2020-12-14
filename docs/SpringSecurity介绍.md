@@ -16,3 +16,13 @@
 
 ```
  
+###2.相关配置
+
+1.//身份认证接口
+com.java.common.srcurity.SecurityConfig.configure
+
+2.获取用户信息和角色相关赋值
+com.java.common.srcurity.service.UserDetailsServiceImpl.createLoginUser
+
+
+

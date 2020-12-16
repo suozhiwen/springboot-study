@@ -1,7 +1,6 @@
 package com.java.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +34,9 @@ public class AjaxResult extends HashMap<String, Object> {
      */
     public static final String ANNOTATION_LIST ="annotationList";
 
+    public static final AjaxResult ERR = AjaxResult.error();
+
+
 
     /**
      * 初始化一个新创建的 AjaxResult 对象，使其表示一个空消息。
@@ -63,7 +65,7 @@ public class AjaxResult extends HashMap<String, Object> {
     public AjaxResult(int code, String msg, Object data, List<String> annotationList) {
         super.put(CODE_TAG, code);
         super.put(MSG_TAG, msg);
-        if (StringUtils.isNotBlank((CharSequence) data)) {
+        if (StringUtils.isNotNull(data)) {
             super.put(DATA_TAG, data);
             super.put(ANNOTATION_LIST,annotationList);
         }
@@ -72,43 +74,10 @@ public class AjaxResult extends HashMap<String, Object> {
     public AjaxResult(int code, String msg, Object data) {
         super.put(CODE_TAG, code);
         super.put(MSG_TAG, msg);
-        if (StringUtils.isNotBlank((CharSequence) data)) {
+        if (StringUtils.isNotNull(data)) {
             super.put(DATA_TAG, data);
         }
     }
-
-
-//    /**
-//     * 返回成功消息
-//     *
-//     * @param msg 返回内容
-//     * @return 成功消息
-//     */
-//    public static AjaxResult success(String msg) {
-//        return AjaxResult.success(msg);
-//    }
-
-
-    /**
-     * 返回错误消息
-     *
-     * @param code 状态码
-     * @param msg  返回内容
-     * @return 警告消息
-     */
-    public static AjaxResult error(int code, String msg) {
-        return new AjaxResult(code, msg, null);
-    }
-    /**
-     * 返回错误消息
-     *
-     * @param msg  返回内容
-     * @return 警告消息
-     */
-    public static AjaxResult error(String msg) {
-        return new AjaxResult(500, msg, null);
-    }
-
 
     /**
      * 返回成功消息
@@ -125,9 +94,20 @@ public class AjaxResult extends HashMap<String, Object> {
      * @return 成功消息
      */
     public static AjaxResult success(Object data) {
+//        List<String> stringList = ReflectionCaptureComment.test(data);
+//        return AjaxResult.success("操作成功", data,stringList);
         return AjaxResult.success("操作成功", data);
-        //return AjaxResult.success("操作成功", data);
     }
+
+//    /**
+//     * 返回成功消息
+//     *
+//     * @param msg 返回内容
+//     * @return 成功消息
+//     */
+//    public static AjaxResult success(String msg) {
+//        return AjaxResult.success(msg);
+//    }
 
     /**
      * 返回成功消息
@@ -137,6 +117,59 @@ public class AjaxResult extends HashMap<String, Object> {
      * @return 成功消息
      */
     public static AjaxResult success(String msg, Object data) {
+//        return new AjaxResult(HttpStatus.SUCCESS, msg, data);
         return new AjaxResult(200, msg, data);
+    }
+    /**
+     * 返回成功消息
+     *
+     * @param msg  返回内容
+     * @param data 数据对象
+     * @return 成功消息
+     */
+    public static AjaxResult success(String msg, Object data,List<String> annotationList) {
+//        return new AjaxResult(HttpStatus.SUCCESS, msg, data,annotationList);
+        return new AjaxResult(200, msg, data);
+    }
+
+    /**
+     * 返回错误消息
+     *
+     * @return
+     */
+    public static AjaxResult error() {
+        return AjaxResult.error("操作失败");
+    }
+
+    /**
+     * 返回错误消息
+     *
+     * @param msg 返回内容
+     * @return 警告消息
+     */
+    public static AjaxResult error(String msg) {
+        return AjaxResult.error(msg, null);
+    }
+    /**
+     * 返回错误消息
+     *
+     * @param msg  返回内容
+     * @param data 数据对象
+     * @return 警告消息
+     */
+    public static AjaxResult error(String msg, Object data) {
+//        return new AjaxResult(HttpStatus.ERROR, msg, data);
+        return new AjaxResult(200, msg, data);
+    }
+
+    /**
+     * 返回错误消息
+     *
+     * @param code 状态码
+     * @param msg  返回内容
+     * @return 警告消息
+     */
+    public static AjaxResult error(int code, String msg) {
+        return new AjaxResult(code, msg, null);
     }
 }
